@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Log Entries:</h1>
+    <h2>{{ insert }}</h2>
+    <div>
+      {% if log_entries %}
+        <table>
+          <thead>
+            <th>IP</th>
+            <th>User Agent</th>
+            <th>Lat,Lon</th>
+            <th>ID Value</th>
+          </thead>
+          <tbody>
+            {% for entry in log_entries %}
+            <tr>
+              <td>{{ entry.ip }}</td>
+              <td>{{ entry.ua }}</td>
+              <td>{{ entry.geo }}</td>
+              <td>{{ entry.val }}</td>
+            </tr>
+            {% endfor %}
+
+          </tbody>
+
+        </table>
+        {% else %}
+        <p>No log entries found!</p>
+        {% endif %}
+
+    </div>
+  </body>
+</html>
